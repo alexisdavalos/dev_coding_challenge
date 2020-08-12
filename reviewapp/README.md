@@ -1,4 +1,7 @@
-# reviewapp
+# Amazon Review Application
+
+* Built with Vue.js and Firebase Realtime Database
+* Deployed with Firebase Hosting
 
 ## Environment Variables
 ```
