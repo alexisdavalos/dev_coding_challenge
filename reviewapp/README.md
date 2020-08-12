@@ -1,11 +1,12 @@
 # Amazon Review Application
 
 * Built with Vue.js and Firebase Realtime Database
+* Styled with SCSS and Buefy + Bulma 
 * Deployed with Firebase Hosting: https://reviewapp-a76f1.web.app/
 
 ## Environment Variables
 ```
-You must set up these environment variables for the application to work
+You must set up these environment variables for the application to function correctly
 
 VUE_APP_FIREBASE_API_KEY
 VUE_APP_FIREBASE_AUTH_DOMAIN
