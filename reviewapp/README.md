@@ -1,4 +1,4 @@
-# Amazon Review Application
+# Amazon Alexa Review Application
 
 * Built with Vue.js and Firebase Realtime Database
 * Styled with SCSS and Buefy + Bulma 
