@@ -58,13 +58,13 @@
     // Selected Star
     .star.selected {
       color: $gold;
-      box-shadow: inset 1px 1px 20px 20px #00000091;
+      box-shadow: inset 1px 1px 20px 20px $shadow;
       border-radius: 5px;
       // Selects all descendant stars
       ~ .star {
         color: $gold;
         border-radius: 5px;
-        box-shadow: inset 1px 1px 20px 20px #00000091;
+        box-shadow: inset 1px 1px 20px 20px $shadow;
         .control.check {
           label {
             border-color: $gold;

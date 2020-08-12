@@ -14,7 +14,7 @@ import moment from "moment";
 // Firebase Import
 import Firebase from "firebase";
 // Your web app's Firebase configuration
-var firebaseConfig = {
+const firebaseConfig = {
   apiKey: `${process.env.VUE_APP_FIREBASE_API_KEY}`,
   authDomain: `${process.env.VUE_APP_FIREBASE_AUTH_DOMAIN}`,
   databaseURL: `${process.env.VUE_APP_FIREBASE_DATABASE_URL}`,
