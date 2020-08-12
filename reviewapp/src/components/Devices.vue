@@ -42,12 +42,12 @@
 <script>
 // Device Images
 import charcoal from "@/assets/charcoal_fabric.jpg";
-import sandstone from "../assets/charcoal_fabric.jpg";
-import black from "../assets/black.png";
-import white from "../assets/white.jpg";
-import walnut from "../assets/walnut_finish.jpg";
-import heather from "../assets/heather_gray_fabric.jpg";
-import oak from "../assets/oak_finish.jpg";
+import sandstone from "@/assets/charcoal_fabric.jpg";
+import black from "@/assets/black.png";
+import white from "@/assets/white.jpg";
+import walnut from "@/assets/walnut_finish.jpg";
+import heather from "@/assets/heather_gray_fabric.jpg";
+import oak from "@/assets/oak_finish.jpg";
 
 export default {
   name: "Devices",

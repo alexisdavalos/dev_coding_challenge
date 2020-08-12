@@ -2,12 +2,14 @@
   <div id="app">
     <Navbar id="nav" />
     <router-view v-on:submit-review="submit" :reviewItems="reviewItems" />
+    <Footer />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import Navbar from "@/components/Navbar.vue";
+import Footer from "@/components/Footer.vue";
 import moment from "moment";
 // Firebase Import
 import Firebase from "firebase";
@@ -39,6 +41,7 @@ export default {
   },
   components: {
     Navbar,
+    Footer,
   },
   methods: {
     submit: function(formData) {

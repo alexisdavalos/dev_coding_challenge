@@ -7,7 +7,11 @@
       :type="formErrors.name ? 'is-danger' : ''"
       :message="formErrors.name ? 'Name Cannot Be Empty' : ''"
     >
-      <b-input v-model="formData.name" @input="handleName" placeholder="Enter your name..."></b-input>
+      <b-input
+        v-model="formData.name"
+        @input="handleName"
+        placeholder="Enter your name..."
+      ></b-input>
     </b-field>
 
     <!-- Select Device Field -->
@@ -21,9 +25,7 @@
       <b-select v-model="formData.deviceVariant" @input="handleDevice" expanded>
         <option disabled value>Select Device Variant</option>
         <option v-for="device in options" v-bind:key="device" :value="device">
-          {{
-          device
-          }}
+          {{ device }}
         </option>
       </b-select>
     </b-field>
@@ -67,15 +69,15 @@
         </div>
       </div>
     </div>
-    <b-field v-if="formErrors.rating" type="is-danger" message="Rating cannot be empty"></b-field>
+    <b-field
+      v-if="formErrors.rating"
+      type="is-danger"
+      message="Rating cannot be empty"
+    ></b-field>
     <!-- <Upload /> -->
-    <b-button
-      v-on:click="submit"
-      icon-left="check"
-      size="is-medium"
-      type="is-primary"
-      expanded
-    >Submit</b-button>
+    <b-button v-on:click="submit" icon-left="check" size="is-medium" expanded
+      >Submit</b-button
+    >
   </section>
 </template>
 
