@@ -1,5 +1,14 @@
+@import "./colors";
+
+// Overrides Bulma
 .carousel-list.carousel {
   box-shadow: none;
+}
+.carousel-arrow .icon {
+  color: $primary !important;
+  &:hover {
+    border-color: $primary !important;
+  }
 }
 // Device Card
 .card {
