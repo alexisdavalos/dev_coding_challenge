@@ -38,5 +38,22 @@ npm run build
 npm run lint
 ```
 
+## Firebase Deployment setup
+```
+Install Firebase CLI Tools:
+npm install -g firebase-tools
+
+Run Following Sequence:
+firebase login
+
+firebase init
+(Note: Do not overwrite index.html if you already ran `npm run build`)
+
+firebase deploy
+
+Result:
+✔  Deploy complete!
+Hosting URL: https://example-vueapp-2222.web.app
+```
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
