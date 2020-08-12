@@ -1,4 +1,10 @@
 @import "./colors.scss";
 footer.footer {
   background: $primary;
+  a {
+    color: $secondary;
+    &:hover {
+      color: $secondary;
+    }
+  }
 }

@@ -35,3 +35,18 @@
     }
   }
 }
+
+// Override Bulma & Buefy Defaults
+.select {
+  &:after {
+    border-color: $primary !important;
+  }
+}
+input,
+textarea,
+select {
+  &:focus {
+    border-color: $primary !important;
+    box-shadow: none !important;
+  }
+}

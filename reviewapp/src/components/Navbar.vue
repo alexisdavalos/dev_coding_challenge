@@ -1,5 +1,5 @@
 <template>
-  <b-navbar fixed-top="true">
+  <b-navbar :fixed-top="true">
     <template slot="brand">
       <b-navbar-item tag="router-link" :to="{ path: '/' }">
         <img
@@ -20,10 +20,15 @@
     <template slot="end">
       <b-navbar-item tag="div">
         <div class="buttons">
-          <a class="button">
-            <strong>Sign up</strong>
-          </a>
-          <a class="button is-light">Log in</a>
+          <b-button
+            class="button"
+            icon-left="github"
+            tag="a"
+            href="https://github.com/alexisdavalos/dev_coding_challenge"
+            target="_blank"
+          >
+            <strong>Code Base</strong>
+          </b-button>
         </div>
       </b-navbar-item>
     </template>
