@@ -38,7 +38,7 @@ npm run build
 npm run lint
 ```
 
-## Firebase Deployment setup
+## Firebase Deployment Setup
 
 ### Install Firebase CLI Tools:
 ```
