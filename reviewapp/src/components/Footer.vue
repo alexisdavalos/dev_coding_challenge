@@ -1,5 +1,13 @@
 <template>
   <footer class="footer">
+    <!-- Alexis Davalos Logo -->
+    <div class="logos columns is-mobile is-centered">
+      <figure class="image is-64x64">
+        <a href="https://www.alexisdavalos.dev" target="_blank"
+          ><img :src="image" alt="alexis davalos logo"
+        /></a>
+      </figure>
+    </div>
     <!-- License info -->
     <div class="content has-text-centered">
       <p>
@@ -12,15 +20,6 @@
         >
         License.
       </p>
-    </div>
-
-    <!-- Alexis Davalos Logo -->
-    <div class="logos columns is-mobile is-centered">
-      <figure class="image is-128x128">
-        <a href="https://www.alexisdavalos.dev" target="_blank"
-          ><img :src="image" alt="alexis davalos logo"
-        /></a>
-      </figure>
     </div>
   </footer>
 </template>
