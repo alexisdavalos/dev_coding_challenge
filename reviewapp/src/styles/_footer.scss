@@ -1,6 +1,20 @@
 @import "./colors.scss";
 footer.footer {
   background: $primary;
+  .logos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .image {
+      margin: 25px 0;
+      a {
+        img {
+          filter: brightness(2);
+        }
+      }
+    }
+  }
   a {
     color: $secondary;
     &:hover {

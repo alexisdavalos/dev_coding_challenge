@@ -24,7 +24,7 @@
             class="button"
             icon-left="github"
             tag="a"
-            href="https://github.com/alexisdavalos/dev_coding_challenge"
+            href="https://github.com/alexisdavalos/dev_coding_challenge/tree/master/reviewapp"
             target="_blank"
           >
             <strong>Code Base</strong>

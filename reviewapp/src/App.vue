@@ -3,6 +3,10 @@
     <Navbar id="nav" />
     <router-view v-on:submit-review="submit" :reviewItems="reviewItems" />
     <Footer />
+    <b-loading :is-full-page="true" :active.sync="isLoading" :can-cancel="true">
+      <b-icon pack="fas" icon="sync-alt" size="is-large" custom-class="fa-spin">
+      </b-icon>
+    </b-loading>
   </div>
 </template>
 
@@ -12,7 +16,10 @@ import Navbar from "@/components/Navbar.vue";
 import Footer from "@/components/Footer.vue";
 import moment from "moment";
 // Firebase Import
-import Firebase from "firebase";
+import Firebase from "firebase/app";
+import "firebase/database";
+import "firebase/storage";
+
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: `${process.env.VUE_APP_FIREBASE_API_KEY}`,
@@ -23,21 +30,32 @@ const firebaseConfig = {
   messagingSenderId: `${process.env.VUE_APP_FIREBASE_SENDER_ID}`,
   appId: `${process.env.VUE_APP_FIREBASE_APP_ID}`,
 };
+
 // Initialize Firebase
-let app = Firebase.initializeApp(firebaseConfig);
-let db = app.database();
+Firebase.initializeApp(firebaseConfig);
+let db = Firebase.database();
 let reviewsRef = db.ref("reviews");
 
 export default {
   name: "reviewApp",
   data() {
     return {
+      isLoading: true,
       reviewItems: [],
     };
+  },
+  created() {
+    this.isLoading = true;
   },
   mounted() {
     // Gets Review Data
     this.getData();
+  },
+  watch: {
+    // whenever reviewItems changes, this function will run
+    reviewItems: function() {
+      this.isLoading = false;
+    },
   },
   components: {
     Navbar,
