@@ -4,8 +4,7 @@
     <router-view v-on:submit-review="submit" :reviewItems="reviewItems" />
     <Footer />
     <b-loading :is-full-page="true" :active.sync="isLoading" :can-cancel="true">
-      <b-icon pack="fas" icon="sync-alt" size="is-large" custom-class="fa-spin">
-      </b-icon>
+      <b-icon pack="fas" icon="sync-alt" size="is-large" custom-class="fa-spin"></b-icon>
     </b-loading>
   </div>
 </template>
@@ -52,8 +51,9 @@ export default {
     this.getData();
   },
   watch: {
-    // whenever reviewItems changes, this function will run
-    reviewItems: function() {
+    // Whenever reviewItems changes, this function will run
+    // Turns off Load state when reviewItems are populated
+    reviewItems: function () {
       this.isLoading = false;
     },
   },
@@ -62,19 +62,47 @@ export default {
     Footer,
   },
   methods: {
-    submit: function(formData) {
+    submit: async function (formData) {
+      // Boolean
+      let submitted = false;
       // Sends formData to Firebase Realtime Database
-      reviewsRef.push({ ...formData, timestamp: moment().format() });
-      // Gets New Review Data
-      this.getData();
+      await reviewsRef.push(
+        { ...formData, timestamp: moment().format() },
+        (error) => {
+          if (error) {
+            // The write failed... Open buefy toast with error
+            this.$buefy.toast.open({
+              duration: 3000,
+              message: `Error Submitting Form: ${error}`,
+              position: "is-top",
+              type: "is-danger",
+            });
+          } else {
+            // Data saved successfully! Open buefy toast with success
+            this.$buefy.toast.open({
+              duration: 3000,
+              message: `Successfully Submitted Review`,
+              position: "is-top",
+              type: "is-success",
+            });
+            // Submission success
+            submitted = true;
+          }
+        }
+      );
+
+      // Gets Updated Review Data w/ new Review
+      if (submitted) {
+        this.getData();
+      }
     },
-    getData: function() {
+    getData: function () {
       // Reset Reviews Array
       this.reviewItems.length = 0;
       // Retrieves reviews from Firebase
       reviewsRef.on("value", (reviews) => {
         reviews.forEach((review) => {
-          this.reviewItems.push({
+          this.reviewItems.unshift({
             deviceVariant: review.child("deviceVariant").val(),
             message: review.child("message").val(),
             name: review.child("name").val(),
@@ -86,24 +114,5 @@ export default {
     },
   },
 };
-console.log;
 </script>
 
-<style lang="scss">
-@import "./styles/_colors.scss";
-
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav a {
-  font-weight: bold;
-}
-
-#nav a.router-link-exact-active {
-  color: $primary;
-}
-</style>
