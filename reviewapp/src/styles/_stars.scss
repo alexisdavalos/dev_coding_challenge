@@ -14,12 +14,12 @@
 //Block Contains Review Stars
 .block {
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   margin-bottom: 1rem;
   // Wraps Stars
   .starContainer {
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     flex-direction: row-reverse;
     margin-left: 0.75rem;
 

@@ -25,7 +25,9 @@
     }
   }
 }
-
+a.router-link-exact-active {
+  color: $primary;
+}
 a.navbar-item {
   &:hover {
     color: $primary;
