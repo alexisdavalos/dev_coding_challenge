@@ -78,6 +78,10 @@
 </template>
 
 <script>
+import Firebase from "firebase/app";
+let db = Firebase.database();
+let deviceVariants = db.ref("deviceVariants");
+
 export default {
   data() {
     return {
@@ -94,17 +98,24 @@ export default {
         message: false,
         rating: false,
       },
-      options: [
-        "Charcoal Fabric",
-        "Sandstone Fabric",
-        "Black",
-        "White",
-        "Walnut Finish",
-        "Heather Gray Fabric",
-        "Oak Finish",
-      ],
+      options: [],
       validCount: 0,
     };
+  },
+  mounted() {
+    // Fetch New Options from Firebase
+    this.options = fetchOptions();
+
+    // Fetch Logic
+    function fetchOptions() {
+      deviceVariants.on("value", (variants) => {
+        let newOptions = variants.val();
+        return newOptions;
+      });
+    }
+  },
+  beforeDestroy() {
+    deviceVariants.off();
   },
   methods: {
     // Method to submit form
