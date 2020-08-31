@@ -104,15 +104,11 @@ export default {
   },
   mounted() {
     // Fetch New Options from Firebase
-    this.options = fetchOptions();
+    this.options.length = 0;
 
-    // Fetch Logic
-    function fetchOptions() {
-      deviceVariants.on("value", (variants) => {
-        let newOptions = variants.val();
-        return newOptions;
-      });
-    }
+    deviceVariants.on("value", (variants) => {
+      this.options = variants.val();
+    });
   },
   beforeDestroy() {
     deviceVariants.off();
@@ -141,7 +137,7 @@ export default {
       }
 
       // Check that all fields have been validated
-      if (this.validCount === 4) {
+      if (this.validCount === Object.keys(this.formData).length) {
         // Send form data up to parent component
         this.$emit("submit-review", this.formData);
 
